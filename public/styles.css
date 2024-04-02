@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+	padding: 5px;
+    background-color: #f5f5f5;
+}
+
+img {
+    width: 100%;
+    height: auto;
+  }
+
+#messages-container img {
+    width: 100%;
+    height: auto;
+}
+
+.rich-text-area {
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .rich-text-area div {
+    border: 0px solid rgb(165, 165, 165);
+    padding: 10px;
+  }
+  .rich-text-area > div {
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+*{
+    box-sizing: border-box;
+}
+
+#container {
+    padding: 0;
+    margin: 0;
+    max-width: 800px;
+    width: 100%;
+}
+
+#chat-box {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    max-height: calc(100vh - 300px);
+	height: calc(100vh - 150px);
+    padding: 1rem;
+    overflow-y: auto;
+    font-size: 1rem;
+	position: relative; /* Allows absolute positioning of children */
+
+}
+
+#upload-box {
+    background-color: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+	height: 60px;
+    padding: 1rem;
+    overflow-y: auto;
+    text-align: center;
+    font-size: 1rem;
+	position: relative; /* Allows absolute positioning of children */
+}
+
+button:disabled {
+    background-color: #cccccc; /* or any other color you want */
+    color: #666666; /* or any other color you want */
+}
+
+.disable-button {
+    pointer-events: none;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+}
+
+.enable-button {
+    pointer-events: all;
+    background-color: #007BFF;
+    color: #007BFF;
+}
+
+#spinner {
+    position: absolute; /* Allows positioning relative to chat-box */
+    bottom: 10px; /* 10 pixels from the bottom of chat-box */
+    right: 10px; /* 10 pixels from the right side of chat-box */
+    /* Other spinner styles... */
+}
+
+
+#message-box {
+    flex-grow: 1;
+    margin-right: 10px;
+    resize: none;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    outline: none;
+    height: auto;
+}
+
+#input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Change this from center to stretch */
+}
+
+#note {
+    font-size: 0.6rem;
+    color: #888;
+    margin-top: 5px;
+	margin-left: 5px;
+}
+
+#message-box:focus {
+    border-color: #c1c1c1;
+}
+
+#send-button {
+    font-family: Arial, sans-serif;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+	padding: 20px 16px;
+    margin-top: 0px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
+	height: 100%;
+}
+
+
+
+#send-button:hover {
+    background-color: #0056B3;
+}
+
+#send-button:active {
+    background-color: #004085;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.bounce1,
+.bounce2,
+.bounce3 {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  background-color: #0056b3;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.bounce2 {
+  animation-delay: -0.4s;
+}
+
+.bounce3 {
+  animation-delay: -0.8s;
+}
+
+#checkboxes {
+    margin-top: 5px;
+    color: grey;
+    font-size: 0.6em;
+    line-height: 1.5;
+}
+
+.checkbox {
+    margin-right: 5px;
+    vertical-align: bottom; /* Aligns the checkbox with the bottom of the text */
+}
+
+#checkboxes label {
+    margin-right: 20px;
+    display: inline-flex;
+    align-items: center; /* Aligns the text with the center of the checkbox */
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+		display: block;
+    }
+    #container {
+        padding: 0px;
+    }
+    #chat-box {
+        padding: 0.5rem;
+    }
+    #message-box {
+        padding: 4px;
+	    font-size: 16px;
+    }
+}
+

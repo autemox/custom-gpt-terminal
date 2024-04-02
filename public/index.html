@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+		<div id="container">
+		    <font size=-2 color=gray>ChatGPT Terminal</font>
+			<div id="chat-box">
+				<div id="messages-container" contenteditable="true">
+					<!-- Messages will be added here -->
+				</div>
+			</div>
+		</div>
+        <br>
+		<div id="container">
+            <div id="spinner" class="spinner hidden">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        <div id="input-container">
+			<textarea id="message-box" rows="3" placeholder="Type your prompt here"></textarea>
+			<button id="send-button" onclick="sendMessage()">Send</button>
+		</div>
+    </div>
+	<div id="checkboxes"> 
+		<label><input type="checkbox" class="checkbox" id="showHidden" onclick="toggleOption('showHidden')"> Show [HIDDEN] text?</label>
+		<!-- <label><input type="checkbox" class="checkbox" id="hideLast" onclick="toggleOption('hideLast')"> Hide last sentence?</label> -->
+		<label><input type="checkbox" class="checkbox" id="chatGPTAssist" onclick="toggleOption('chatGPTAssist'); toggleVisibility('styleSelect');"> ChatGPT Assist with Midjourney</label>
+		<label><input type="checkbox" class="checkbox" id="summarizeFolderCheckbox" onclick="setText('summarize-folder'); toggleVisibility('summarize-folder-btn');"> Summarize Folder</label>
+<label>
+<select id="styleSelect" name="styles" onchange="handleSelectChange(event)" style="display:none;">
+    <option value="">Assist Artstyles</option>
+    <option value="">None</option>
+    <option value="hyper realism">Hyper Realism</option>
+    <option value="steampunk">Steampunk</option>
+    <option value="art deco">Art Deco</option>
+    <option value="abstract expressionism">Abstract Expressionism</option>
+    <option value="pointillism">Pointillism</option>
+    <option value="cubism">Cubism</option>
+    <option value="gothic">Gothic</option>
+    <option value="pop art">Pop Art</option>
+    <option value="psychedelic">Psychedelic</option>
+    <option value="impressionism">Impressionism</option>
+    <option value="fauvism">Fauvism</option>
+    <option value="glitch art">Glitch Art</option>
+    <option value="trompe loeil">Trompe Loeil</option>
+    <option value="chiaroscuro">Chiaroscuro</option>
+    <option value="minimalist">Minimalist</option>
+    <option value="flat design">Flat Design</option>
+    <option value="surface detail">Surface Detail</option>
+    <option value="halftone">Halftone</option>
+    <option value="grid">Grid</option>
+    <option value="guilloche patterns">Guilloche Patterns</option>
+    <option value="celtic maze">Celtic Maze</option>
+    <option value="glassmorphism">Glassmorphism</option>
+    <option value="morphism">Morphism</option>
+    <option value="bauhaus">Bauhaus</option>
+    <option value="artNouveau">Art Nouveau</option>
+    <option value="baroque">Baroque</option>
+    <option value="postmodernism">Postmodernism</option>
+    <option value="industrial">Industrial</option>
+    <option value="midCentury modern">Mid-Century Modern</option>
+    <option value="scandinavian">Scandinavian</option>
+    <option value="japanese">Japanese</option>
+    <option value="mediterranean">Mediterranean</option>
+    <option value="bohemian">Bohemian</option>
+    <option value="cyberpunk">Cyberpunk</option>
+    <option value="scifi">Sci-fi</option>
+    <option value="eclectic">Eclectic</option>
+    <option value="transitional">Transitional</option>
+    <option value="urban">Urban</option>
+    <option value="global">Global</option>
+    <option value="naturalistic">Naturalistic</option>
+    <option value="geometric">Geometric</option>
+    <option value="dada">Dada</option>
+    <option value="opulent">Opulent</option>
+    <option value="synthetism">Synthetism</option>
+    <option value="tachisme">Tachisme</option>
+    <option value="symbolism">Symbolism</option>
+    <option value="neo expressionism">Neo-Expressionism</option>
+    <option value="vaporware">Vaporware</option>
+    <option value="papercut">Papercut</option>
+    <option value="pixelArt">Pixel Art</option>
+</select></label>
+
+    <button id="summarize-folder-btn" style="display:none;">Upload Folder</button>
+    <input type="file" id="files" name="files" directory webkitdirectory multiple style="display: none;">
+    <script src="upload.js"></script>
+		</div>
+		<div id="note">
+			You can hold CTRL+Enter to send a message.  Use [SYSTEM] to bypass token limit in this session or [HIDDEN] to hides text from chat.
+		</div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
